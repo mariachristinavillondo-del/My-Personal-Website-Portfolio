@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Website portfolio</title>
+  <script src="c:\Users\maria christina\Downloads\d88a2700-6113-47b1-a94e-df137685f984.jpeg"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #cf89c9 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background: rgba(2, 26, 56, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #d3ca1fdc 0%, #cd1010 100%);
+            border-radius: 4px;
+            animation: fillBar 2s ease-in-out;
+        }
+        
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(234, 102, 216, 0.9);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="Formal photo/Formal Photo.png" type="text/javascript"></script>
+ </head>
+ <body class="min-h-full"><!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+   <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+     <div class="text-2xl font-bold text-gray-800" id="nav-name">
+      Maria Christina Villondo
+     </div>
+     <div class="hidden md:flex space-x-8"><a href="#home" class="nav-link text-gray-700 hover:text-blue-600">Home</a> <a href="#about" class="nav-link text-gray-700 hover:text-blue-600">About</a> <a href="#projects" class="nav-link text-gray-700 hover:text-blue-600">Projects</a> <a href="#skills" class="nav-link text-gray-700 hover:text-blue-600">Skills</a> <a href="#contact" class="nav-link text-gray-700 hover:text-blue-600">Contact</a>
+     </div><button class="md:hidden texttoggleMobileMenu()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2"><a href="#home" class="block text-gray-700 hover:text-blue-600 py-2">Home</a> <a href="#about" class="block text-gray-700 hover:text-blue-600 py-2">About</a> <a href="#projects" class="block text-gray-700 hover:text-blue-600 py-2">Projects</a> <a href="#skills" class="block text-gray-700 hover:text-blue-600 py-2">Skills</a> <a href="#contact" class="block text-gray-700 hover:text-blue-600 py-2">Contact</a>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="gradient-bg min-h-full flex items-center justify-center text-white">
+   <div class="text-center px-6 max-w-4xl mx-auto">
+    <div class="fade-in">
+     <h1 class="text-5xl md:text-7xl font-bold mb-6" id="hero-name">Maria Christina Villondo</h1>
+    </div>
+    <div class="fade-in">
+     <h2 class="text-2xl md:text-3xl mb-8 text-blue-100" id="hero-title">IT Student</h2>
+    </div>
+    <div class="fade-in">
+     <p class="text-xl mb-12 text-blue-50 max-w-2xl mx-auto" id="hero-tagline">Learning to Create a beautiful, functional web experiences that make a difference</p>
+    </div>
+    <div class="fade-in"><button onclick="scrollToSection('contact')" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"> Get In Touch </button>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="py-20 bg-gray-50">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+     <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+     <div>
+      <div class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-full flex items-center justify-center">
+       <svg class="w-40 h-40 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 7V9C15 10.1 15.9 11 17 11V20C17 21.1 16.1 22 15 22H9C7.9 22 7 21.1 7 20V11C8.1 11 9 10.1 9 9V7H3V9C3 10.1 3.9 11 5 11V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V11C20.1 11 21 10.1 21 9Z" />
+       </svg>
+      </div>
+     </div>
+     <div>
+      <p class="text-lg text-gray-600 mb-6 leading-relaxed" id="about-description">I'm a passionate IT student learning to create digital solutions that combine beautiful design with powerful functionality and love turning complex problems into simple, elegant solutions.</p>
+      <div class="grid grid-cols-2 gap-6">
+       <div class="text-center p-4 bg-white rounded-lg shadow-sm">
+        <div class="text-3xl font-bold text-blue-600">
+         3
+        </div>
+        <div class="text-gray-600">
+         Projects Completed
+        </div>
+       
+         .
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+     <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="project-card relative bg-gray-100 rounded-lg overflow-hidden card-hover">
+      <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="text-xl font-semibold mb-2">ICCT Healthcare System</h3>
+       <p class="text-gray-600 mb-4">Manage patients records, bills and payments</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">html/CSS</span> <span class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm">Node.js/Xampp</span>
+       </div>
+      </div>
+      <div class="project-overlay"><button class="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold mb-3 hover:bg-gray-100 transition-colors"> View Project </button> <button class="border-2 bor der-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors"> Live Demo </button>
+      </div>
+     </div>
+     <div class="project-card relative bg-gray-100 rounded-lg overflow-hidden card-hover">
+      <div class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M17,12H22L18,8V11H4V13H18V16M2,6H16V4H2A2,2 0 0,0 0,6V18A2,2 0 0,0 2,20H16V18H2V6Z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="text-xl font-semibold mb-2">To do list website</h3>
+       <p class="text-gray-600 mb-4">A tool that can list all your activities and scheduled it</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">html</span> <span class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm">CSS</span>
+       </div>
+      </div>
+      <div class="project-overlay"><button class="bg-white text-green-600 px-6 py-2 rounded-full font-semibold mb-3 hover:bg-gray-100 transition-colors"> View Project </button> <button class="border-2 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-green-600 transition-colors"> Live Demo </button>
+      </div>
+     </div>
+     <div class="project-card relative bg-gray-100 rounded-lg overflow-hidden card-hover">
+      <div class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+       <svg class="w-16 h-16 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z" />
+       </svg>
+      </div>
+      <div class="p-6">
+       <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+       <p class="text-gray-600 mb-4">Responsive portfolio site with smooth animations and modern design</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">HTML/CSS</span> <span class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm">JavaScript</span>
+       </div>
+      </div>
+      <div class="project-overlay"><button class="bg-white text-purple-600 px-6 py-2 rounded-full font-semibold mb-3 hover:bg-gray-100 transition-colors"> View Project </button> <button class="border-2 border-white text-white px-6 py-2 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors"> Live Demo </button>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Skills Section -->
+  <section id="skills" class="py-20 gradient-bg text-white">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold mb-4">Skills &amp; Expertise</h2>
+     <div class="w-20 h-1 bg-white mx-auto"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12">
+     <div>
+      <h3 class="text-2xl font-semibold mb-8">Technical Skills</h3>
+      <div class="space-y-6">
+       <div>
+        <div class="flex justify-between mb-2"><span>JavaScript</span> <span>20%</span>
+        </div>
+        <div class="skill-bar">
+         <div class="skill-progress" style="width: 40%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-2"><span>html</span> <span>50%</span>
+        </div>
+        <div class="skill-bar">
+         <div class="skill-progress" style="width: 20%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-2"><span>CSS</span> <span>40%</span>
+        </div>
+        <div class="skill-bar">
+         <div class="skill-progress" style="width: 20%"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-2"><span>Database Design</span> <span>20%</span>
+        </div>
+        <div class="skill-bar">
+         <div class="skill-progress" style="width: 20%"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div>
+      <h3 class="text-2xl font-semibold mb-8">Tools &amp; Technologies</h3>
+      <div class="grid grid-cols-2 gap-4">
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+         ⚛️
+        </div>
+        <div>
+         C++
+        </div>
+       </div>
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+         🟢
+        </div>
+        <div>
+         Script.js
+        </div>
+       </div>
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+         🐍
+        </div>
+        <div>
+         Python
+        </div>
+       </div>
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+          🟧
+        </div>
+        <div>
+         Xampp
+        </div>
+       </div>
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+         ☁️
+        </div>
+        <div>
+         PHPadmin
+        </div>
+       </div>
+       <div class="bg-white/10 p-4 rounded-lg text-center">
+        <div class="text-2xl mb-2">
+         🐳
+        </div>
+        <div>
+        Visual Studio Code
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+   <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+     <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+     <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+     <p class="text-xl text-gray-600">Ready to work and learn together? Let's create something amazing!</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12">
+     <div>
+      <h3 class="text-2xl font-semibold mb-6 text-gray-800">Contact Information</h3>
+      <div class="space-y-4">
+       <div class="flex items-center">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+         <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+         </svg>
+        </div>
+        <div>
+         <div class="font-semibold text-gray-800">
+          Email
+         </div>
+         <div class="text-gray-600" id="contact-email">
+          mariachristinavillondo@gmail.com
+         </div>
+        </div>
+       </div>
+       <div class="flex items-center">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+         <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z" />
+         </svg>
+        </div>
+        <div>
+         <div class="font-semibold text-gray-800">
+          Phone
+         </div>
+         <div class="text-gray-600" id="contact-phone">
+          +1 (555) 123-4567
+         </div>
+        </div>
+       </div>
+       <div class="flex items-center">
+        <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+         <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+         </svg>
+        </div>
+        <div>
+         <div class="font-semibold text-gray-800">
+          Location
+         </div>
+         <div class="text-gray-600" id="contact-location">
+          Antipolo City, Phillippines
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div>
+      <form class="space-y-6" onsubmit="handleContactForm(event)">
+       <div><label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label> <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+       </div>
+       <div><label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label> <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+       </div>
+       <div><label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label> <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
+       </div><button type="submit" class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"> Send Message </button>
+      </form>
+     </div>
+    </div>
+   </div>
+  </section><!-- Footer -->
+  <footer class="bg-gray-800 text-white py-12">
+   <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center">
+     <div class="text-2xl font-bold mb-4" id="footer-name">
+      Maria christina Villondo
+     </div>
+     <p class="text-gray-400 mb-6">Building the future, one line of code at a time.</p>
+     <div class="flex justify-center space-x-6"><a href="#" class="text-gray-400 hover:text-white transition-colors">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+       </svg></a> <a href="#" class="text-gray-400 hover:text-white transition-colors">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+       </svg></a> <a href="#" class="text-gray-400 hover:text-white transition-colors">
+       <svg class="w-6 h-6" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+       </svg></a>
+     </div>
+     <div class="mt-8 pt-8 border-t border-gray-700 text-gray-400">
+      <p>© 2025 Maria Christina D. Villondo.</p>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Default configuration
+        const defaultConfig = {
+            name: "Maria Christina D. Villondo",
+            title: "IT student in ICCT colleges", 
+            tagline: "Learning is continuous process.",
+            about_text: "Hello! I’m Maria Christina Dominguez Villondo, a 21-year-old third-year Information Technology student at ICCT Colleges. As the eldest in my family, I’ve learned the values of responsibility, leadership, and determination qualities that also guide me in my studies and projects. I have a strong passion for web development and design, specializing in HTML and CSS to create clean, responsive, and user-friendly websites. I love turning ideas into digital experiences that are both functional and visually engaging. I’m always eager to learn new skills, explore creative solutions, and grow as a developer. My goal is to build a career that combines innovation, technology, and design to make a positive impact..",
+            email: "mariachristinavillondo@email.com",
+            phone: "09706617643 (tnt)",
+            location: "Antipolo City, Rizal",
+            background_color: "#667eea",
+            surface_color: "#ffffff", 
+            text_color: "#374151",
+            primary_action_color: "#2563eb",
+            secondary_action_color: "#6b7280",
+            font_family: "Inter",
+            font_size: 16
+        };
+
+        // Configuration management
+        let config = {};
+
+        // Initialize Element SDK
+        async function initializeSDK() {
+            if (window.elementSdk) {
+                await window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange: async (newConfig) => {
+                        config = { ...defaultConfig, ...newConfig };
+                        updateUI();
+                    },
+                    mapToCapabilities: (config) => ({
+                        recolorables: [
+                            {
+                                get: () => config.background_color || defaultConfig.background_color,
+                                set: (value) => {
+                                    config.background_color = value; 
+                                    window.elementSdk.setConfig({ background_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.surface_color || defaultConfig.surface_color,
+                                set: (value) => {
+                                    config.surface_color = value;
+                                    window.elementSdk.setConfig({ surface_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.text_color || defaultConfig.text_color,
+                                set: (value) => {
+                                    config.text_color = value;
+                                    window.elementSdk.setConfig({ text_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.primary_action_color || defaultConfig.primary_action_color,
+                                set: (value) => {
+                                    config.primary_action_color = value;
+                                    window.elementSdk.setConfig({ primary_action_color: value });
+                                }
+                            },
+                            {
+                                get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+                                set: (value) => {
+                                    config.secondary_action_color = value;
+                                    window.elementSdk.setConfig({ secondary_action_color: value });
+                                }
+                            }
+                        ],
+                        borderables: [],
+                        fontEditable: {
+                            get: () => config.font_family || defaultConfig.font_family,
+                            set: (value) => {
+                                config.font_family = value;
+                                window.elementSdk.setConfig({ font_family: value });
+                            }
+                        },
+                        fontSizeable: {
+                            get: () => config.font_size || defaultConfig.font_size,
+                            set: (value) => {
+                                config.font_size = value;
+                                window.elementSdk.setConfig({ font_size: value });
+                            }
+                        }
+                    }),
+                    mapToEditPanelValues: (config) => new Map([
+                        ["name", config.name || defaultConfig.name],
+                        ["title", config.title || defaultConfig.title],
+                        ["tagline", config.tagline || defaultConfig.tagline],
+                        ["about_text", config.about_text || defaultConfig.about_text],
+                        ["email", config.email || defaultConfig.email],
+                        ["phone", config.phone || defaultConfig.phone],
+                        ["location", config.location || defaultConfig.location]
+                    ])
+                });
+                
+                config = { ...defaultConfig, ...window.elementSdk.config };
+                updateUI();
+            } else {
+                config = defaultConfig;
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            const customFont = config.font_family || defaultConfig.font_family;
+            const baseSize = config.font_size || defaultConfig.font_size;
+            const baseFontStack = 'system-ui, -apple-system, sans-serif';
+            
+            // Update text content
+            document.getElementById('nav-name').textContent = config.name || defaultConfig.name;
+            document.getElementById('hero-name').textContent = config.name || defaultConfig.name;
+            document.getElementById('hero-title').textContent = config.title || defaultConfig.title;
+            document.getElementById('hero-tagline').textContent = config.tagline || defaultConfig.tagline;
+            document.getElementById('about-description').textContent = config.about_text || defaultConfig.about_text;
+            document.getElementById('contact-email').textContent = config.email || defaultConfig.email;
+            document.getElementById('contact-phone').textContent = config.phone || defaultConfig.phone;
+            document.getElementById('contact-location').textContent = config.location || defaultConfig.location;
+            document.getElementById('footer-name').textContent = config.name || defaultConfig.name;
+            
+            // Apply colors
+            const backgroundColor = config.background_color || defaultConfig.background_color;
+            const surfaceColor = config.surface_color || defaultConfig.surface_color;
+            const textColor = config.text_color || defaultConfig.text_color;
+            const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+            const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+            
+            // Update gradient backgrounds
+            document.querySelectorAll('.gradient-bg').forEach(el => {
+                el.style.background = `linear-gradient(135deg, ${backgroundColor} 0%, ${backgroundColor}dd 100%)`;
+            });
+            
+            // Update surface colors
+            document.querySelectorAll('.bg-white').forEach(el => {
+                if (!el.classList.contains('text-white')) {
+                    el.style.backgroundColor = surfaceColor;
+                }
+            });
+            
+            // Update text colors
+            document.querySelectorAll('.text-gray-800, .text-gray-700, .text-gray-600').forEach(el => {
+                el.style.color = textColor;
+            });
+            
+            // Update primary action colors
+            document.querySelectorAll('.bg-blue-600, .text-blue-600').forEach(el => {
+                if (el.classList.contains('bg-blue-600')) {
+                    el.style.backgroundColor = primaryActionColor;
+                } else {
+                    el.style.color = primaryActionColor;
+                }
+            });
+            
+            // Update secondary action colors  
+            document.querySelectorAll('.text-gray-400').forEach(el => {
+                el.style.color = secondaryActionColor;
+            });
+            
+            // Apply font family
+            document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+            
+            // Apply font sizing
+            document.body.style.fontSize = `${baseSize}px`;
+            document.querySelectorAll('h1').forEach(el => {
+                el.style.fontSize = `${baseSize * 3.5}px`;
+            });
+            document.querySelectorAll('h2').forEach(el => {
+                el.style.fontSize = `${baseSize * 2.25}px`;
+            });
+            document.querySelectorAll('h3').forEach(el => {
+                el.style.fontSize = `${baseSize * 1.25}px`;
+            });
+        }
+
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Contact form handler
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Show success message
+            const button = event.target.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Message Sent!';
+            button.style.backgroundColor = '#10b981';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = '';
+                event.target.reset();
+            }, 3000);
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeSDK);
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9960ec7b84805df8',t:'MTc2MTcyMjU2Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
